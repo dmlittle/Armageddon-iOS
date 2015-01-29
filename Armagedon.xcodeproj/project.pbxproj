@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D54D4FB1A6348A30030A7AE /* Character.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D54D4FA1A6348A30030A7AE /* Character.m */; };
+		9D5ADDBE1A63A5AF006CF078 /* Arrow.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D5ADDBD1A63A5AF006CF078 /* Arrow.m */; };
+		9D6145501A79CA030063AE10 /* GameHelperLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D61454F1A79CA030063AE10 /* GameHelperLayer.m */; };
+		9D6145531A79CB7D0063AE10 /* GameOverLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D6145521A79CB7D0063AE10 /* GameOverLayer.m */; };
+		9D6145561A79E3250063AE10 /* StartGameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D6145551A79E3250063AE10 /* StartGameLayer.m */; };
+		9D6145591A7A21280063AE10 /* Snake.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D6145581A7A21280063AE10 /* Snake.m */; };
 		9D6892EC1A61BE900087CB43 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D6892EB1A61BE900087CB43 /* main.m */; };
 		9D6892EF1A61BE900087CB43 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D6892EE1A61BE900087CB43 /* AppDelegate.m */; };
 		9D6892F21A61BE900087CB43 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D6892F11A61BE900087CB43 /* GameScene.m */; };
@@ -29,6 +35,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9D23B63E1A66351900FA727F /* ObjectMasks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjectMasks.h; sourceTree = "<group>"; };
+		9D54D4F91A6348A30030A7AE /* Character.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Character.h; sourceTree = "<group>"; };
+		9D54D4FA1A6348A30030A7AE /* Character.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Character.m; sourceTree = "<group>"; };
+		9D5ADDBC1A63A5AF006CF078 /* Arrow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Arrow.h; sourceTree = "<group>"; };
+		9D5ADDBD1A63A5AF006CF078 /* Arrow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Arrow.m; sourceTree = "<group>"; };
+		9D61454E1A79CA030063AE10 /* GameHelperLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameHelperLayer.h; sourceTree = "<group>"; };
+		9D61454F1A79CA030063AE10 /* GameHelperLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameHelperLayer.m; sourceTree = "<group>"; };
+		9D6145511A79CB7D0063AE10 /* GameOverLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverLayer.h; sourceTree = "<group>"; };
+		9D6145521A79CB7D0063AE10 /* GameOverLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverLayer.m; sourceTree = "<group>"; };
+		9D6145541A79E3250063AE10 /* StartGameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartGameLayer.h; sourceTree = "<group>"; };
+		9D6145551A79E3250063AE10 /* StartGameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartGameLayer.m; sourceTree = "<group>"; };
+		9D6145571A7A21280063AE10 /* Snake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Snake.h; sourceTree = "<group>"; };
+		9D6145581A7A21280063AE10 /* Snake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Snake.m; sourceTree = "<group>"; };
 		9D6892E61A61BE900087CB43 /* Armagedon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Armagedon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D6892EA1A61BE900087CB43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D6892EB1A61BE900087CB43 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -91,8 +110,21 @@
 				9D6892F01A61BE900087CB43 /* GameScene.h */,
 				9D6892F11A61BE900087CB43 /* GameScene.m */,
 				9D6892F31A61BE900087CB43 /* GameScene.sks */,
+				9D54D4F91A6348A30030A7AE /* Character.h */,
+				9D54D4FA1A6348A30030A7AE /* Character.m */,
+				9D6145571A7A21280063AE10 /* Snake.h */,
+				9D6145581A7A21280063AE10 /* Snake.m */,
+				9D5ADDBC1A63A5AF006CF078 /* Arrow.h */,
+				9D5ADDBD1A63A5AF006CF078 /* Arrow.m */,
+				9D61454E1A79CA030063AE10 /* GameHelperLayer.h */,
+				9D61454F1A79CA030063AE10 /* GameHelperLayer.m */,
+				9D6145541A79E3250063AE10 /* StartGameLayer.h */,
+				9D6145551A79E3250063AE10 /* StartGameLayer.m */,
+				9D6145511A79CB7D0063AE10 /* GameOverLayer.h */,
+				9D6145521A79CB7D0063AE10 /* GameOverLayer.m */,
 				9D6892F51A61BE900087CB43 /* GameViewController.h */,
 				9D6892F61A61BE900087CB43 /* GameViewController.m */,
+				9D23B63E1A66351900FA727F /* ObjectMasks.h */,
 				9D6892F81A61BE900087CB43 /* Main.storyboard */,
 				9D6892FB1A61BE900087CB43 /* Images.xcassets */,
 				9D6892FD1A61BE900087CB43 /* LaunchScreen.xib */,
@@ -176,6 +208,7 @@
 				TargetAttributes = {
 					9D6892E51A61BE900087CB43 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 8RGZQZTCY6;
 					};
 					9D6893031A61BE900087CB43 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -230,8 +263,14 @@
 			files = (
 				9D6892F71A61BE900087CB43 /* GameViewController.m in Sources */,
 				9D6892EF1A61BE900087CB43 /* AppDelegate.m in Sources */,
+				9D6145591A7A21280063AE10 /* Snake.m in Sources */,
+				9D6145561A79E3250063AE10 /* StartGameLayer.m in Sources */,
+				9D5ADDBE1A63A5AF006CF078 /* Arrow.m in Sources */,
+				9D6145531A79CB7D0063AE10 /* GameOverLayer.m in Sources */,
 				9D6892F21A61BE900087CB43 /* GameScene.m in Sources */,
 				9D6892EC1A61BE900087CB43 /* main.m in Sources */,
+				9D54D4FB1A6348A30030A7AE /* Character.m in Sources */,
+				9D6145501A79CA030063AE10 /* GameHelperLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,9 +392,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Armagedon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Armagedon;
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -363,9 +405,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Armagedon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Armagedon;
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -383,7 +428,7 @@
 				);
 				INFOPLIST_FILE = ArmagedonTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ArmagedonTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Armagedon.app/Armagedon";
 			};
 			name = Debug;
@@ -398,7 +443,7 @@
 				);
 				INFOPLIST_FILE = ArmagedonTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ArmagedonTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Armagedon.app/Armagedon";
 			};
 			name = Release;
@@ -422,6 +467,7 @@
 				9D6893101A61BE900087CB43 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9D6893111A61BE900087CB43 /* Build configuration list for PBXNativeTarget "ArmagedonTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +476,7 @@
 				9D6893131A61BE900087CB43 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

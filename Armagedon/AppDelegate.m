@@ -16,7 +16,13 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"bestScore"]) {
+        [[NSUserDefaults standardUserDefaults] setObject:@0 forKey:@"bestScore"];
+        [[NSUserDefaults standardUserDefaults] setObject:@0 forKey:@"lastScore"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+
     return YES;
 }
 
