@@ -7,6 +7,7 @@
 //
 
 #import "Arrow.h"
+#import <AVFoundation/AVFoundation.h>
 
 @implementation Arrow
 
@@ -30,6 +31,7 @@
         
         self.explosionAnimation = [SKAction group:@[
                                                     [SKAction animateWithTextures:explosionTextures timePerFrame:0.078125],
+                                                    [SKAction playSoundFileNamed:@"explosion.wav" waitForCompletion:NO],
                                                     [SKAction moveByX:0 y:-32 duration:0]
                                                     ]];
         

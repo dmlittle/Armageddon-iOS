@@ -22,6 +22,9 @@
 		9D6892FC1A61BE900087CB43 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D6892FB1A61BE900087CB43 /* Images.xcassets */; };
 		9D6892FF1A61BE900087CB43 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D6892FD1A61BE900087CB43 /* LaunchScreen.xib */; };
 		9D68930B1A61BE900087CB43 /* ArmagedonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D68930A1A61BE900087CB43 /* ArmagedonTests.m */; };
+		9DBC40061A7AD04100BAB743 /* TutorialGameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DBC40051A7AD04100BAB743 /* TutorialGameLayer.m */; };
+		9DBC40081A7ADAF400BAB743 /* arabesqueSounds.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9DBC40071A7ADAF400BAB743 /* arabesqueSounds.wav */; };
+		9DBC400C1A7ADC8100BAB743 /* explosion.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9DBC400B1A7ADC8100BAB743 /* explosion.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +67,10 @@
 		9D6893041A61BE900087CB43 /* ArmagedonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArmagedonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D6893091A61BE900087CB43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D68930A1A61BE900087CB43 /* ArmagedonTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArmagedonTests.m; sourceTree = "<group>"; };
+		9DBC40041A7AD04100BAB743 /* TutorialGameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialGameLayer.h; sourceTree = "<group>"; };
+		9DBC40051A7AD04100BAB743 /* TutorialGameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialGameLayer.m; sourceTree = "<group>"; };
+		9DBC40071A7ADAF400BAB743 /* arabesqueSounds.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = arabesqueSounds.wav; sourceTree = "<group>"; };
+		9DBC400B1A7ADC8100BAB743 /* explosion.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = explosion.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +127,8 @@
 				9D61454F1A79CA030063AE10 /* GameHelperLayer.m */,
 				9D6145541A79E3250063AE10 /* StartGameLayer.h */,
 				9D6145551A79E3250063AE10 /* StartGameLayer.m */,
+				9DBC40041A7AD04100BAB743 /* TutorialGameLayer.h */,
+				9DBC40051A7AD04100BAB743 /* TutorialGameLayer.m */,
 				9D6145511A79CB7D0063AE10 /* GameOverLayer.h */,
 				9D6145521A79CB7D0063AE10 /* GameOverLayer.m */,
 				9D6892F51A61BE900087CB43 /* GameViewController.h */,
@@ -136,6 +145,8 @@
 		9D6892E91A61BE900087CB43 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9DBC400B1A7ADC8100BAB743 /* explosion.wav */,
+				9DBC40071A7ADAF400BAB743 /* arabesqueSounds.wav */,
 				9D6892EA1A61BE900087CB43 /* Info.plist */,
 				9D6892EB1A61BE900087CB43 /* main.m */,
 			);
@@ -240,8 +251,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DBC400C1A7ADC8100BAB743 /* explosion.wav in Resources */,
 				9D6892FF1A61BE900087CB43 /* LaunchScreen.xib in Resources */,
 				9D6892FC1A61BE900087CB43 /* Images.xcassets in Resources */,
+				9DBC40081A7ADAF400BAB743 /* arabesqueSounds.wav in Resources */,
 				9D6892F41A61BE900087CB43 /* GameScene.sks in Resources */,
 				9D6892FA1A61BE900087CB43 /* Main.storyboard in Resources */,
 			);
@@ -268,6 +281,7 @@
 				9D5ADDBE1A63A5AF006CF078 /* Arrow.m in Sources */,
 				9D6145531A79CB7D0063AE10 /* GameOverLayer.m in Sources */,
 				9D6892F21A61BE900087CB43 /* GameScene.m in Sources */,
+				9DBC40061A7AD04100BAB743 /* TutorialGameLayer.m in Sources */,
 				9D6892EC1A61BE900087CB43 /* main.m in Sources */,
 				9D54D4FB1A6348A30030A7AE /* Character.m in Sources */,
 				9D6145501A79CA030063AE10 /* GameHelperLayer.m in Sources */,

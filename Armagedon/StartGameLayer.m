@@ -21,12 +21,23 @@
     {
         [[self childNodeWithName:@"transparent"] removeFromParent];
         
+        SKSpriteNode *node = [SKSpriteNode spriteNodeWithColor:[UIColor colorWithWhite:0.0 alpha:0.15]
+                                                          size:CGSizeMake(size.width*0.9, 105)];
+        node.position = CGPointMake(size.width * 0.5f, size.height * 0.63f);
+        [self addChild:node];
+        
+        SKLabelNode  *gameName = [[SKLabelNode alloc] initWithFontNamed:@"HelveticaNeue-Thin"];
+        [gameName setFontSize:60];
+        [gameName setText:@"Armageddon"];
+        [gameName setPosition:CGPointMake(0, -15)];
+        [node addChild:gameName];
+
         SKSpriteNode* startGameText = [SKSpriteNode spriteNodeWithImageNamed:@"logo"];
         startGameText.position = CGPointMake(size.width * 0.5f, size.height * 0.8f);
-        [self addChild:startGameText];
+//        [self addChild:startGameText];
         
         SKSpriteNode* playButton = [SKSpriteNode spriteNodeWithImageNamed:@"play"];
-        playButton.position = CGPointMake(size.width * 0.5f, size.height * 0.60f);
+        playButton.position = CGPointMake(size.width * 0.5f, size.height * 0.37f);
         [self addChild:playButton];
         
         [self setPlayButton:playButton];

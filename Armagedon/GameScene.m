@@ -11,10 +11,13 @@
 #import "Arrow.h"
 #import "Snake.h"
 #import "StartGameLayer.h"
+#import "TutorialGameLayer.h"
 #import "GameOverLayer.h"
 
+#import <AVFoundation/AVFoundation.h>
 
-@interface GameScene() <StartGameLayerDelegate, GameOverLayerDelegate>
+
+@interface GameScene() <StartGameLayerDelegate, TutorialGameLayerDelegate, GameOverLayerDelegate>
 {
     
     BOOL _gameStarted;
@@ -22,6 +25,7 @@
     BOOL _gameOver;
     
     StartGameLayer* _startGameLayer;
+    TutorialGameLayer* _tutorialGameLayer;
     GameOverLayer* _gameOverLayer;
     
     SKLabelNode *_gameScore;
@@ -31,6 +35,9 @@
     
     NSMutableArray *_characters;
     NSMutableArray *_arrows;
+    
+    AVAudioPlayer *_backgroundMusicPlayer;
+
 
 }
 
@@ -41,6 +48,7 @@
 -(void)didMoveToView:(SKView *)view {
     [super didMoveToView:view];
     [self setupCloudAnimation];
+    [self setupMusic];
     [self setupNewGame];
     [self showStartGameLayer];
 }
@@ -65,6 +73,17 @@
     
     [bigCloudsNode runAction:[SKAction repeatActionForever:[SKAction sequence:moveBigClouds]]];
     [smallCloudsNode runAction:[SKAction repeatActionForever:[SKAction sequence:moveSmallClouds]]];
+}
+
+-(void)setupMusic
+{
+    NSError *error;
+    NSURL * backgroundMusicURL = [[NSBundle mainBundle] URLForResource:@"arabesqueSounds" withExtension:@"wav"];
+    _backgroundMusicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:backgroundMusicURL error:&error];
+    _backgroundMusicPlayer.numberOfLoops = -1;
+    [_backgroundMusicPlayer prepareToPlay];
+    [_backgroundMusicPlayer play];
+
 }
 
 -(void)setPausedState:(BOOL) state
@@ -95,6 +114,7 @@
     
     [self addInitialCharacters];
     [self initializeStartGameLayer];
+    [self initializeTutorialGameLayer];
     [self initializeGameOverLayer];
 
 }
@@ -212,6 +232,15 @@
     _startGameLayer.delegate = self;
 }
 
+- (void) initializeTutorialGameLayer
+{
+    _tutorialGameLayer = [[TutorialGameLayer alloc]initWithSize:self.size];
+    _tutorialGameLayer.userInteractionEnabled = YES;
+    _tutorialGameLayer.zPosition = 999;
+    _tutorialGameLayer.delegate = self;
+}
+
+
 - (void)initializeGameOverLayer
 {
     _gameOverLayer = [[GameOverLayer alloc]initWithSize:self.size];
@@ -223,11 +252,21 @@
 #pragma mark - GameStatus calls
 - (void) showStartGameLayer
 {
+    [_tutorialGameLayer removeFromParent];
     [_gameOverLayer removeFromParent];
     [self removeGameButtons];
-    
     [self addChild:_startGameLayer];
 }
+
+- (void) showTutorialGameLayer
+{
+    [_startGameLayer removeFromParent];
+    [_gameOverLayer removeFromParent];
+    [self removeGameButtons];
+    [self addChild:_tutorialGameLayer];
+}
+
+
 
 - (void) showGameOverLayer
 {
@@ -244,8 +283,17 @@
     _gameOver = NO;
     _gameStarted = YES;
     
+    [self showTutorialGameLayer];
+}
+
+- (void)tutorialGameLayer:(TutorialGameLayer *)sender tapRecognizedOnButton:(TutorialGameLayerButtonType)startGameLayerButton
+{
+    _gameOver = NO;
+    _gameStarted = YES;
+    
     [self startGame];
 }
+
 
 - (void)gameOverLayer:(GameOverLayer *)sender tapRecognizedOnButton:(GameOverLayerButtonType)gameOverLayerButtonType
 {
@@ -271,6 +319,7 @@
     _gameStarted = YES;
 
     [_startGameLayer removeFromParent];
+    [_tutorialGameLayer removeFromParent];
     [_gameOverLayer removeFromParent];
     
 }
@@ -321,7 +370,6 @@
             
         }
 
-    
     
         for (Arrow *a in [_arrows copy]) {
             if (a.position.y < 125) {
