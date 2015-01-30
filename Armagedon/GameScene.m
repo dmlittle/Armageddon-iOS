@@ -36,6 +36,8 @@
     NSMutableArray *_characters;
     NSMutableArray *_arrows;
     
+    NSTimer *_arrowTimer;
+    
     AVAudioPlayer *_backgroundMusicPlayer;
 
 
@@ -161,7 +163,7 @@
                 CGFloat xPos = arrow.position.x;
                 CGFloat yPos = arrow.position.y;
                 
-                if (abs(xPos - touchXPos) < 35 && abs(yPos - touchYPos) < 40) {
+                if (abs(xPos - touchXPos) < 50 && abs(yPos - touchYPos) < 40) {
                     [_arrows removeObject:arrow];
                     [arrow removeFromParent];
                     _score++;
@@ -266,8 +268,6 @@
     [self addChild:_tutorialGameLayer];
 }
 
-
-
 - (void) showGameOverLayer
 {
     _gameOver = YES;
@@ -281,7 +281,7 @@
 - (void)startGameLayer:(StartGameLayer *)sender tapRecognizedOnButton:(StartGameLayerButtonType)startGameLayerButton
 {
     _gameOver = NO;
-    _gameStarted = YES;
+    _gameStarted = NO;
     
     [self showTutorialGameLayer];
 }
@@ -317,7 +317,9 @@
     [self refreshScoreLabel];
     
     _gameStarted = YES;
-
+    
+    _arrowTimer = [NSTimer scheduledTimerWithTimeInterval:0.35f target:self selector:@selector(addArrow) userInfo:nil repeats:YES];
+        
     [_startGameLayer removeFromParent];
     [_tutorialGameLayer removeFromParent];
     [_gameOverLayer removeFromParent];
@@ -338,18 +340,34 @@
     
 }
 
+-(void)addArrow
+{
+    int numArrows;
+    
+    if (_score < 50) {
+        numArrows = 1;
+    } else if (_score < 125) {
+        numArrows = arc4random_uniform(2) + 1;
+    } else {
+        numArrows = arc4random_uniform(3) + 1;
+    }
+    
+    for (int i = 0; i < numArrows; i++) {
+        Arrow *arrow = [Arrow new];
+        [_arrows addObject:arrow];
+        [self addChild:arrow];
+    }
+    
+}
+
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
 
     if (_gameStarted) {
-        if ( rand()%100 < 5 ) {
-            Arrow *arrow = [Arrow new];
-            [_arrows addObject:arrow];
-            [self addChild:arrow];
-        }
         
         if ([_characters count] == 0) {
             _gameStarted = NO;
+            [_arrowTimer invalidate];
             for (Arrow *a in [_arrows copy]) {
                 [a removeFromParent];
                 [_arrows removeObject:a];

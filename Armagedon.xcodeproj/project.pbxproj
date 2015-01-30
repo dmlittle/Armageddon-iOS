@@ -25,6 +25,8 @@
 		9DBC40061A7AD04100BAB743 /* TutorialGameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DBC40051A7AD04100BAB743 /* TutorialGameLayer.m */; };
 		9DBC40081A7ADAF400BAB743 /* arabesqueSounds.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9DBC40071A7ADAF400BAB743 /* arabesqueSounds.wav */; };
 		9DBC400C1A7ADC8100BAB743 /* explosion.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9DBC400B1A7ADC8100BAB743 /* explosion.wav */; };
+		9DDA518F1A7AE3490053F28D /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DDA518D1A7AE3490053F28D /* Crashlytics.framework */; };
+		9DDA51901A7AE3490053F28D /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DDA518E1A7AE3490053F28D /* Fabric.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,8 @@
 		9DBC40051A7AD04100BAB743 /* TutorialGameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialGameLayer.m; sourceTree = "<group>"; };
 		9DBC40071A7ADAF400BAB743 /* arabesqueSounds.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = arabesqueSounds.wav; sourceTree = "<group>"; };
 		9DBC400B1A7ADC8100BAB743 /* explosion.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = explosion.wav; sourceTree = "<group>"; };
+		9DDA518D1A7AE3490053F28D /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
+		9DDA518E1A7AE3490053F28D /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +82,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DDA518F1A7AE3490053F28D /* Crashlytics.framework in Frameworks */,
+				9DDA51901A7AE3490053F28D /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,6 +143,8 @@
 				9D6892F81A61BE900087CB43 /* Main.storyboard */,
 				9D6892FB1A61BE900087CB43 /* Images.xcassets */,
 				9D6892FD1A61BE900087CB43 /* LaunchScreen.xib */,
+				9DDA518D1A7AE3490053F28D /* Crashlytics.framework */,
+				9DDA518E1A7AE3490053F28D /* Fabric.framework */,
 				9D6892E91A61BE900087CB43 /* Supporting Files */,
 			);
 			path = Armagedon;
@@ -180,6 +188,7 @@
 				9D6892E21A61BE900087CB43 /* Sources */,
 				9D6892E31A61BE900087CB43 /* Frameworks */,
 				9D6892E41A61BE900087CB43 /* Resources */,
+				9DDA518C1A7AE2F80053F28D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -268,6 +277,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9DDA518C1A7AE2F80053F28D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 2fcd6b973c7d951d5244392bb5dcc4beda633c17 aaae8f0d414187d7c1e225a164acaf8e071a7e9e66cc3b5cf61b92be1ff2d306";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9D6892E21A61BE900087CB43 /* Sources */ = {
@@ -408,6 +433,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Armagedon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = Armagedon;
@@ -421,6 +450,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Armagedon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = Armagedon;

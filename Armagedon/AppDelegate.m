@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
 
 @interface AppDelegate ()
 
@@ -22,6 +24,7 @@
         [[NSUserDefaults standardUserDefaults] setObject:@0 forKey:@"lastScore"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
+    [Fabric with:@[CrashlyticsKit]];
 
     return YES;
 }

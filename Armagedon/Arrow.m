@@ -9,7 +9,15 @@
 #import "Arrow.h"
 #import <AVFoundation/AVFoundation.h>
 
+static int arrowCount = 0;
+
 @implementation Arrow
+
++(int)arrowCount
+{
+    return arrowCount++;
+    
+}
 
 -(instancetype)init  {
     if (self = [super initWithImageNamed:@"arrow"]) {
@@ -17,8 +25,19 @@
         self.zPosition = 100;
         
         // Initiate at random location
-        CGFloat xPosition = 50 + 69 * arc4random_uniform(5);
-
+        CGFloat xPosition;
+        
+        // Testing new random locations based on the amount of arrows created...
+        int arrowCount = [Arrow arrowCount];
+        
+        if (arrowCount < 15) {
+            xPosition = 50 + 137 * arc4random_uniform(3);
+        } else if (arrowCount < 50) {
+            xPosition = 50 + 92 * arc4random_uniform(4);
+        } else {
+            xPosition = 50 + 69 * arc4random_uniform(5);
+        }
+        
         [self setPosition:CGPointMake(xPosition, 800)];
         
         // Load animation textures
@@ -27,7 +46,6 @@
         for (int i = 0; i < 16; i++) {
             explosionTextures[i] = [SKTexture textureWithImageNamed:[NSString stringWithFormat:@"explosion_%d", i]];
         }
-        
         
         self.explosionAnimation = [SKAction group:@[
                                                     [SKAction animateWithTextures:explosionTextures timePerFrame:0.078125],
