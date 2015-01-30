@@ -166,10 +166,14 @@
                 if (abs(xPos - touchXPos) < 50 && abs(yPos - touchYPos) < 40) {
                     [_arrows removeObject:arrow];
                     [arrow removeFromParent];
-                    _score++;
+                    
+                    int additionalScore = (int) [_characters count] / 2;
+                    if (additionalScore == 0) additionalScore = 1;
+                    
+                    _score += additionalScore;
                     [self refreshScoreLabel];
                     
-                    if ( ( _score % 50) == 0 && _score > 0) {
+                    if ( ( _score % 100) == 0 && _score > 0) {
                         int randomNum = arc4random() % 7 == 0;
                         if (randomNum == 0) {
                             [self addNewCharacterWithName:@"jawa"];
@@ -344,9 +348,9 @@
 {
     int numArrows;
     
-    if (_score < 50) {
+    if (_score < 75) {
         numArrows = 1;
-    } else if (_score < 125) {
+    } else if (_score < 175) {
         numArrows = arc4random_uniform(2) + 1;
     } else {
         numArrows = arc4random_uniform(3) + 1;
@@ -360,34 +364,39 @@
     
 }
 
+-(void) endGameAndSaveScore
+{
+    _gameStarted = NO;
+    [_arrowTimer invalidate];
+    for (Arrow *a in [_arrows copy]) {
+        [a removeFromParent];
+        [_arrows removeObject:a];
+    }
+
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSNumber *savedBestScore = [defaults objectForKey:@"bestScore"];
+    NSNumber *currentScore = [NSNumber numberWithInt:_score];
+    
+    [defaults setObject:currentScore forKey:@"lastScore"];
+    if ([currentScore intValue] > [savedBestScore intValue]) {
+        [defaults setObject:currentScore forKey:@"bestScore"];
+    }
+    [defaults synchronize];
+  
+}
+
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
 
     if (_gameStarted) {
         
         if ([_characters count] == 0) {
-            _gameStarted = NO;
-            [_arrowTimer invalidate];
-            for (Arrow *a in [_arrows copy]) {
-                [a removeFromParent];
-                [_arrows removeObject:a];
-            }
            
-            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-            NSNumber *savedBestScore = [defaults objectForKey:@"bestScore"];
-            NSNumber *currentScore = [NSNumber numberWithInt:_score];
-            
-            [defaults setObject:currentScore forKey:@"lastScore"];
-            if ([currentScore intValue] > [savedBestScore intValue]) {
-                [defaults setObject:currentScore forKey:@"bestScore"];
-            }
-            [defaults synchronize];
-            
+            [self endGameAndSaveScore];
             [self initializeGameOverLayer];
             [self showGameOverLayer];
             
         }
-
     
         for (Arrow *a in [_arrows copy]) {
             if (a.position.y < 125) {

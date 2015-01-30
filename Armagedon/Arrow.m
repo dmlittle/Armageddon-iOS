@@ -30,9 +30,9 @@ static int arrowCount = 0;
         // Testing new random locations based on the amount of arrows created...
         int arrowCount = [Arrow arrowCount];
         
-        if (arrowCount < 15) {
+        if (arrowCount < 30) {
             xPosition = 50 + 137 * arc4random_uniform(3);
-        } else if (arrowCount < 50) {
+        } else if (arrowCount < 100) {
             xPosition = 50 + 92 * arc4random_uniform(4);
         } else {
             xPosition = 50 + 69 * arc4random_uniform(5);
